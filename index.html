@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>オルグ！ ～組合員ゼロから始める職場制圧記～</title>
+<meta name="description" content="組合員1人から始めて、職場・支部・全国へ。ブラウザだけで遊べる労働組合クリッカー。">
+<meta property="og:title" content="オルグ！ ～組合員ゼロから始める職場制圧記～">
+<meta property="og:description" content="声をかけて、闘志を集めて、仲間を増やす。労働組合クリッカー。">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>✊</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="ticker" class="ticker" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="logo">✊</span>
+    <div>
+      <h1>オルグ！</h1>
+      <p class="tag">組合員ゼロから始める職場制圧記</p>
+    </div>
+  </div>
+  <div class="topactions">
+    <button id="helpBtn" type="button">❓ あそびかた</button>
+    <button id="menuBtn" type="button">⚙️ メニュー</button>
+  </div>
+</header>
+
+<main class="layout">
+
+  <!-- ============ 左：クリック ============ -->
+  <section class="col left">
+    <div class="counter">
+      <div class="big"><b id="spirit">0</b> <span>🔥闘志</span></div>
+      <div class="rate">毎秒 <b id="sps">0</b> ／ 1声 <b id="clickPower">1</b></div>
+    </div>
+
+    <button id="shoutBtn" class="shout" type="button">
+      <span class="face">📣</span>
+      <span class="label">声をかける</span>
+    </button>
+
+    <div class="orgcard">
+      <div class="orgline"><span>組織ランク</span><b id="rank">ひとり組合</b></div>
+      <div class="orgline"><span>総組合員数</span><b><i id="members">0</i> 人</b></div>
+      <div class="orgline"><span>組合歴</span><b>+<i id="veteranNow">0</i>%</b></div>
+      <button id="prestigeBtn" class="prestige" type="button" disabled>🔁 組織再編</button>
+    </div>
+
+    <div id="buffs" class="buffs"></div>
+  </section>
+
+  <!-- ============ 中：強化・実績・記録 ============ -->
+  <section class="col mid">
+    <nav class="tabs">
+      <button class="on" data-tab="tab-upg" type="button">強化 <i id="upgCount">0</i></button>
+      <button data-tab="tab-ach" type="button">実績 <i id="achCount">0/0</i></button>
+      <button data-tab="tab-stats" type="button">記録</button>
+    </nav>
+
+    <div id="tab-upg" class="panel on">
+      <div id="upgrades" class="upgrades"></div>
+      <p id="upgEmpty" class="empty">まだ買える強化はありません。<br>仲間を増やすと解放されます。</p>
+    </div>
+
+    <div id="tab-ach" class="panel">
+      <div id="achievements" class="achievements"></div>
+      <p class="empty dim">実績1つにつき全生産 +1%。</p>
+    </div>
+
+    <div id="tab-stats" class="panel">
+      <div id="stats" class="stats"></div>
+    </div>
+
+    <div class="workplace">
+      <h3>職場のようす</h3>
+      <div id="crowd" class="crowd"></div>
+      <h3>活動日誌</h3>
+      <ul id="log" class="log"></ul>
+    </div>
+  </section>
+
+  <!-- ============ 右：組合員を加入させる ============ -->
+  <section class="col right">
+    <div class="shophead">
+      <h2>組合員を増やす</h2>
+      <div class="buyamt">
+        <button class="on" data-amt="1" type="button">×1</button>
+        <button data-amt="10" type="button">×10</button>
+        <button data-amt="100" type="button">×100</button>
+        <button data-amt="max" type="button">MAX</button>
+      </div>
+    </div>
+    <div id="shop" class="shop"></div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <p>セーブはブラウザ内（localStorage）に自動保存されます。データは端末の外に送信されません。</p>
+</footer>
+
+<div id="tip" class="tip"></div>
+<div id="toast" class="toast"></div>
+
+<div id="modal" class="modal">
+  <div class="sheet">
+    <h3 id="modalTitle"></h3>
+    <div id="modalBody"></div>
+    <div id="modalButtons" class="modalbtns"></div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>
