@@ -37,9 +37,14 @@ python3 -m http.server 8000
 
 ## GitHub Pages で公開する
 
-`main` への push で `.github/workflows/pages.yml` が自動デプロイします。
+`.github/workflows/pages.yml` が push で自動デプロイします。
 初回のみリポジトリの **Settings → Pages → Build and deployment → Source** を
 **GitHub Actions** に設定してください。
+
+公開URL: <https://nsu-central-committee.github.io/test003/>
+
+> デプロイ対象ブランチはワークフローの `on.push.branches` で指定しています。
+> ブランチ名を変えたときはここも合わせて更新してください。
 
 ## 中身をいじる
 

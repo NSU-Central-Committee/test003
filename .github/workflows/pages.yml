@@ -2,7 +2,9 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+      - claude/github-pages-combination-game-jzlkfo
   workflow_dispatch:
 
 permissions:
